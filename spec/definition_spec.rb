@@ -67,4 +67,18 @@ describe '#Definition' do
       expect(Definition.all).to(eq([def2]))
     end
   end
+
+  describe('.find_by_word') do
+    it("finds definitions for a word") do
+      word = Word.new("Blue", nil)
+      word.save()
+      def1 = Definition.new("color", word.id, nil)
+      def1.save()
+      def2 = Definition.new("sound", 6 , nil)
+      def2.save()
+      expect(Definition.find_by_word(word.id)).to(eq([def1]))
+    end
+  end
+
+
 end
