@@ -58,7 +58,8 @@ end
 # Get the detail for a specific song such as lyrics and songwriters.
 get ('/words/:id/definitions/:def_id') do 
   @definition = Definition.find(params[:def_id].to_i())
-  erb :definition 
+  #erb :definition 
+  erb :test
 end
 
   # Post a new song. After the song is added, Sinatra will route to the view for the album the song belongs to.
