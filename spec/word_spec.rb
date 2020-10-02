@@ -70,5 +70,17 @@ describe '#Word' do
     end
   end
 
+  describe('#definitions') do
+    it("returns a words definitions") do
+      word = Word.new("Giants", nil)
+      word.save()
+      definition = Definition.new("big things", word.id, nil)
+      definition.save()
+      def2 = Definition.new("my friend", word.id, nil)
+      def2.save()
+      expect(word.definitions).to(eq([definition, def2]))
+    end
+  end
+
 
 end
