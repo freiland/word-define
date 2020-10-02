@@ -6,7 +6,7 @@
 
 ## Description 
 
-_This application lets a user enter a word to define and adds it to a list. The user may then click on the word to add their own definition. Each definition is stored under the word. A user can edit their definition or the word._
+_This application lets a user enter a word to define and adds it to a list. The user may then click on the word to add their own definition. Each definition is stored under the word. A user can edit their definition or the word and even remove their definitions._
 
 
 ## Setup/Installation Requirements
