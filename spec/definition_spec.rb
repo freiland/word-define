@@ -80,5 +80,14 @@ describe '#Definition' do
     end
   end
 
+  describe('#word') do
+    it("finds the word a definition belongs to") do
+      def1 = Definition.new("hey", @word.id, nil)
+      def1.save()
+      expect(def1.word()).to(eq(@word))
+    end
+  end
+
+
 
 end
