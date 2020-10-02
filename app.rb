@@ -23,7 +23,7 @@ end
 
 get('/words/:id') do
   @words = Word.find(params[:id].to_i())
-  erb(:WORD)
+  erb(:word)
 end
 
 post('/words') do
@@ -47,45 +47,42 @@ patch('/words/:id') do
   erb(:words)
 end
 
-delete('/albums/:id') do
-  @album = Album.find(params[:id].to_i())
-  @album.delete()
-  @albums = Album.all
+delete('/words/:id') do
+  @word = Word.find(params[:id].to_i())
+  @word.delete()
+  @words = Word.all
   erb(:albums)
 end
 
 # Get the detail for a specific song such as lyrics and songwriters.
-get ('/albums/:id/songs/:song_id') do 
-  @song = Song.find(params[:song_id].to_i())
-  erb :song 
+get ('/words/:id/definitions/:def_id') do 
+  @definition = Definition.find(params[:def_id].to_i())
+  erb :definition 
 end
 
   # Post a new song. After the song is added, Sinatra will route to the view for the album the song belongs to.
-post('/albums/:id/songs') do
-  @album = Album.find(params[:id].to_i())
-  song = Song.new(params[:song_name], @album.id, nil)
-  song.save()
-  erb :album
+post('/words/:id/definitions') do
+  @word = Word.find(params[:id].to_i())
+  def1 = Definition.new(params[:song_name], @word.id, nil)
+  def1.save()
+  erb :word
 end
 
 
 # Edit a song and then route back to the album view.
 
-patch ('/albums/:id/songs/:song_id') do 
-  @album = Album.find(params[:id].to_i())
-  song = Song.find(params[:song_id].to_i())
-  song.update(params[:name], @album.id)
-  erb(:album)
+patch ('/words/:id/definitions/:def_id') do 
+  @word = Word.find(params[:id].to_i())
+  def1 = Definition.find(params[:def_id].to_i())
+  def1.update(params[:name], @word.id)
+  erb(:word)
 end
 
 # Delete a song and then route back to the album view.
-delete('/albums/:id/songs/:song_id') do
-  song = Song.find(params[:song_id].to_i())
-  song.delete
-  @album = Album.find(params[:id].to_i())
-  erb(:album)
+delete('/words/:id/definitions/:def_id') do
+  def1 = Definition.find(params[:def_id].to_i())
+  def1.delete
+  @word = Word.find(params[:id].to_i())
+  erb(:word)
 end
 
-get('/custom_route') do
-  "We can even create custom routes, but we should only do this when needed."
-end
