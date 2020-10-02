@@ -20,13 +20,13 @@ describe '#Definition' do
     end
   end
 
-  describe('.all') do 
-    it('returns a list of all definitions') do 
-      def1 = Definition.new("big", @word.id, nil)
-      def1.save()
-      def2 = Definition.new("small", @word.id, nil)
-      def2.save()
-      expect(Definition.all).to(eq([def1, def2]))
-    end
-  end
+  #describe('.all') do 
+    #it('returns a list of all definitions') do 
+      #def1 = Definition.new("big", @word.id, nil)
+      #def1.save()
+      #def2 = Definition.new("small", @word.id, nil)
+      #def2.save()
+      #expect(Definition.all).to(eq([def1, def2]))
+    #end
+  #end
 end

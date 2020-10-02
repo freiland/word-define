@@ -72,14 +72,13 @@ describe '#Word' do
 
   describe('#definitions') do
     it("returns a words definitions") do
-      Word.clear()
-      word_test = Word.new("BIGGER", nil)
-      word_test.save()
-      def3 = Definition.new("ting", word_test.id, nil)
-      def3.save()
-      def4 = Definition.new("nottyting", word_test.id, nil)
-      def4.save()
-      expect(word_test.defs).to(eq([def3, def4]))
+      word = Word.new('TEST', nil)
+      word.save()
+      def1 = Definition.new("yes", word.id, nil)
+      def1.save()
+      def2 = Definition.new("no", word.id, nil)
+      def2.save()
+      expect(word.defs).to(eq([def1, def2]))
     end
   end
 
