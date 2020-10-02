@@ -17,7 +17,7 @@ _This application lets a user enter a word to define and adds it to a list. The 
 * _in the terminal do commmand install bundle_
 * _in terminal do command ruby app.rb_
 
-_Visit heroku link at:_
+_Visit heroku link at: https://radiant-island-70247.herokuapp.com/_
 
 
 
