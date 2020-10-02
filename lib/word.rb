@@ -39,7 +39,7 @@ class Word
     @@all_words.delete(self.id)
   end
 
-  def definitions
+  def defs
     Definition.find_by_word(self.id)
   end
 end

@@ -16,7 +16,7 @@ class Definition
   end
 
   def self.all
-    @@all_defs.values 
+    @@all_defs.values()
   end
 
   def save 
