@@ -7,6 +7,7 @@ also_reload('lib/**/*.rb')
 
 
 get('/') do
+  
   @words = Word.all
   erb(:words)
 end
@@ -22,7 +23,7 @@ get('/words/new') do
 end
 
 get('/words/:id') do
-  @words = Word.find(params[:id].to_i())
+  @word = Word.find(params[:id].to_i())
   erb(:word)
 end
 
