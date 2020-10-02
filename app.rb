@@ -51,7 +51,7 @@ delete('/words/:id') do
   @word = Word.find(params[:id].to_i())
   @word.delete()
   @words = Word.all
-  erb(:albums)
+  erb(:words)
 end
 
 # Get the detail for a specific song such as lyrics and songwriters.
