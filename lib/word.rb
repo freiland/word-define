@@ -25,4 +25,21 @@ class Word
     @@all_words = {}
     @@total_rows = 0
   end
+
+  def self.find(id)
+    @@all_words[id]
+  end
+
+  def update(name)
+    self.name = name
+    @@all_words[self.id] = Word.new(self.name, self.id)
+  end
+
+  def delete()
+    @@all_words.delete(self.id)
+  end
+
+  def definitions
+    Definition.find_by_word(self.id)
+  end
 end

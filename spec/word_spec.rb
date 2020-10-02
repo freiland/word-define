@@ -40,5 +40,15 @@ describe '#Word' do
     end
   end
 
+  describe('.find') do
+    it("finds an word by id") do
+      word = Word.new("tops", nil)
+      word.save()
+      word2 = Word.new("black", nil)
+      word2.save()
+      expect(Word.find(word2.id)).to(eq(word2))
+    end
+  end
+
 
 end
