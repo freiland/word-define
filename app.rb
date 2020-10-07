@@ -15,6 +15,7 @@ end
 get('/words') do
   
   @words = Word.all
+  
   erb(:words)
 end
 
@@ -53,26 +54,33 @@ delete('/words/:id') do
   @word.delete()
   @words = Word.all
   #erb(:words)
-  erb :test2
+  erb :words
 end
 
-# Get the detail for a specific song such as lyrics and songwriters.
+
 get ('/words/:id/definitions/:def_id') do 
   @definition = Definition.find(params[:def_id].to_i())
   #erb :definition 
-  erb :test
+  erb :definition
 end
 
-  # Post a new song. After the song is added, Sinatra will route to the view for the album the song belongs to.
+  
 post('/words/:id/definitions') do
   @word = Word.find(params[:id].to_i())
-  def1 = Definition.new(params[:song_name], @word.id, nil)
+  def1 = Definition.new(params[:def_name], @word.id, nil)
   def1.save()
   erb :word
+  # if (params[:def_names])
+  #   def1 = Definition.new(params[:def_name], @word.id, nil)
+  #   def1.save()
+  #   erb :word
+  # else
+  #   erb :error
+  # end
 end
 
 
-# Edit a song and then route back to the album view.
+
 
 patch ('/words/:id/definitions/:def_id') do 
   @word = Word.find(params[:id].to_i())
@@ -81,7 +89,7 @@ patch ('/words/:id/definitions/:def_id') do
   erb(:word)
 end
 
-# Delete a song and then route back to the album view.
+
 delete('/words/:id/definitions/:def_id') do
   def1 = Definition.find(params[:def_id].to_i())
   def1.delete

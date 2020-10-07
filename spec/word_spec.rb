@@ -5,6 +5,7 @@ describe '#Word' do
 
   before(:each) do
     Word.clear()
+    Definition.clear()
   end
 
   describe ('#save') do 
